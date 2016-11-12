@@ -7,7 +7,7 @@ using QuickGraph;
 
 namespace DMCP_Part_1
 {
-    public delegate void DrawGraph(object sender, IntermediateTransportNetEventArgs args);
+    public delegate void IntermediateGraphDelegate(object sender, IntermediateTransportNetEventArgs args);
     public class IntermediateTransportNetEventArgs : EventArgs
     {
         private TransportGraph _flowGraph;
@@ -30,7 +30,7 @@ namespace DMCP_Part_1
 
     class TransportNetwork
     {
-        public event DrawGraph IntermediateTransportNetResult;
+        public event IntermediateGraphDelegate IntermediateTransportNetResult;
         private const int INFINITY = 9999;
 
         private int[][] _capacity;//пропускная способность
@@ -70,7 +70,6 @@ namespace DMCP_Part_1
         private TransportGraph FormFlowGraph(int[][] flowNet,int[][] incrementalGraph,int currnetFlow,int deltaFlow)
         {
             TransportGraph intermediateGrap = new TransportGraph(currnetFlow,deltaFlow);
-            string edgeID;
             List<GVertex> vertexList = new List<GVertex>();
             for (int i = 0; i < flowNet.Length; ++i)
             {

@@ -8,7 +8,8 @@ using QuickGraph;
 
 namespace DMCP_Part_1
 {
-    public class TransportGraph:AdjacencyGraph<GVertex,GEdge>{
+    public class TransportGraph : BidirectionalGraph<GVertex, GEdge>
+    {
         private int _flow;
         public int Flow
         {
