@@ -81,7 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainWindowViewModel .cs" />
     <Compile Include="GraphType\TransportGraph.cs" />
     <Compile Include="GraphType\TransportGraphLayout.cs" />
     <Page Include="MainWindow.xaml">
