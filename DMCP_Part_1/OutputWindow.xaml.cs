@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DMCP_Part1
+namespace DMCP_Part_1
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OutputWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OutputWindow : Window
     {
-        public MainWindow()
+        public OutputWindow()
         {
             Visualizer visualizer = new Visualizer();
             DataContext = visualizer;

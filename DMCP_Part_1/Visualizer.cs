@@ -21,6 +21,7 @@ namespace DMCP_Part_1
                 return graphToShow;
             }
         }
+
         public Visualizer()
         {
             GVertex V = new GVertex(1);
