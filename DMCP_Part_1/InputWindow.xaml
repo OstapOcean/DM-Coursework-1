@@ -1,0 +1,128 @@
+﻿<Window x:Class="DMCP_Part_1.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DMCP_Part_1"
+        mc:Ignorable="d"
+		Title="InputWindow"
+		Height="350"
+		Width="729">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="10" />
+			<RowDefinition />
+			<RowDefinition Height="10" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="10" />
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="1"
+			  HorizontalAlignment="Left"
+			  Height="299"
+			  Grid.Row="1"
+			  VerticalAlignment="Top"
+			  Width="346">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="25" />
+				<RowDefinition Height="10" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="10" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="5*" />
+				<RowDefinition Height="199*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="10" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<Label x:Name="providers_label"
+				   Content="Количество поставщиков"
+				   HorizontalAlignment="Left"
+				   VerticalAlignment="Top"
+				   Height="25"
+				   Width="168" />
+			<TextBox x:Name="providers_textBox"
+					 HorizontalAlignment="Left"
+					 Height="25"
+					 TextWrapping="Wrap"
+					 Text="{Binding ProvidersCount}"
+					 VerticalAlignment="Top"
+					 Width="168"
+					 Grid.Column="2"
+					 TextChanged="textBox_TextChanged" />
+			<Label x:Name="receiver_label"
+				   Content="Количество потребителей"
+				   HorizontalAlignment="Left"
+				   VerticalAlignment="Top"
+				   Height="25"
+				   Width="168"
+				   Grid.Row="2" />
+			<TextBox x:Name="receiver_textBox"
+					 HorizontalAlignment="Left"
+					 Height="25"
+					 TextWrapping="Wrap"
+					 VerticalAlignment="Top"
+					 Width="168"
+					 Text="{Binding ReceiversCount}"
+					 Grid.Column="2"
+					 Grid.Row="2" />
+			<Button x:Name="button"
+					Content="Ввести значения"
+					Command="{Binding CreateLists_delegate}"
+					HorizontalAlignment="Left"
+					Grid.Row="4"
+					VerticalAlignment="Top"
+					Width="168"
+					Height="25" />
+			<Button x:Name="button_Copy"
+					Content="Подтвердить значения"
+					Command="{Binding CreateLists_delegate}"
+					HorizontalAlignment="Left"
+					Grid.Row="4"
+					VerticalAlignment="Top"
+					Width="168"
+					Height="25"
+					Grid.Column="2" />
+			<DataGrid x:Name="dataGrid"
+					  HorizontalAlignment="Left"
+					  Grid.Row="6"
+					  VerticalAlignment="Top"
+					  Height="199"
+					  Width="168"
+					  ItemsSource="{Binding Providers}"
+					  IsSynchronizedWithCurrentItem="True"
+					  AutoGenerateColumns="False"
+					  CanUserAddRows="True">
+				<DataGrid.Columns>
+					<DataGridTemplateColumn  Header="Поставщики">
+						<DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Path=., Mode=TwoWay}" />
+							</DataTemplate>
+						</DataGridTemplateColumn.CellEditingTemplate>
+
+					</DataGridTemplateColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+			<DataGrid x:Name="dataGrid_Copy"
+					  HorizontalAlignment="Left"
+					  Grid.Row="6"
+					  VerticalAlignment="Top"
+					  Height="199"
+					  Width="168"
+					  ItemsSource="{Binding Receivers}"
+					  Grid.Column="2">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Потребители"
+										Binding="{Binding Path=.}" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+	</Grid>
+</Window>

@@ -76,3 +76,6 @@ C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\QuickGraph.Ser
 C:\Users\A\Desktop\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe.config
 C:\Users\A\Desktop\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.exe
 C:\Users\A\Desktop\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
+H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe.config
+H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.exe
+H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
