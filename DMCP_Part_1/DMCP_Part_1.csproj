@@ -81,16 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controllers\WindowEnterValuesController.cs" />
-    <Compile Include="Delegate.cs" />
-    <Compile Include="MainWindowViewModel .cs" />
-    <Compile Include="Model\GraphType\GEdge.cs" />
-    <Compile Include="Model\GraphType\GVertex.cs" />
     <Compile Include="Model\GraphType\TransportGraph.cs" />
     <Compile Include="Model\GraphType\TransportGraphLayout.cs" />
-    <Compile Include="WindowEnterValues.xaml.cs">
-      <DependentUpon>WindowEnterValues.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Visualizer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,14 +92,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\GraphType\GEdge.cs" />
+    <Compile Include="Model\GraphType\GVertex.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowEnterValues.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\TransportNetwork.cs" />
