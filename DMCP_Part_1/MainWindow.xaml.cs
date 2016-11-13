@@ -22,6 +22,7 @@ namespace DMCP_Part1
     {
         public MainWindow()
         {
+            //Visualizer 
             InitializeComponent();
         }
     }

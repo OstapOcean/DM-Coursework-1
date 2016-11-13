@@ -13,11 +13,24 @@ namespace DMCP_Part_1
   
     class Visualizer : INotifyPropertyChanged
     {
-        IBidirectionalGraph<GVertex, GEdge> graphToShow;
+        private BidirectionalGraph<GVertex, GEdge> graphToShow;
+        public BidirectionalGraph<GVertex, GEdge> GraphToShow
+        {
+            get
+            {
+                return graphToShow;
+            }
+        }
         public Visualizer()
         {
-
+            GVertex V = new GVertex(1);
+            graphToShow = new BidirectionalGraph<GVertex,GEdge>();
+            graphToShow.AddVertex(V);
         }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }
