@@ -22,7 +22,8 @@ namespace DMCP_Part1
     {
         public MainWindow()
         {
-            //Visualizer 
+            Visualizer visualizer = new Visualizer();
+            DataContext = visualizer;
             InitializeComponent();
         }
     }

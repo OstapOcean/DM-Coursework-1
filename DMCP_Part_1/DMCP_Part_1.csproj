@@ -84,8 +84,10 @@
     <Compile Include="Controllers\WindowEnterValuesController.cs" />
     <Compile Include="Delegate.cs" />
     <Compile Include="MainWindowViewModel .cs" />
-    <Compile Include="GraphType\TransportGraph.cs" />
-    <Compile Include="GraphType\TransportGraphLayout.cs" />
+    <Compile Include="Model\GraphType\GEdge.cs" />
+    <Compile Include="Model\GraphType\GVertex.cs" />
+    <Compile Include="Model\GraphType\TransportGraph.cs" />
+    <Compile Include="Model\GraphType\TransportGraphLayout.cs" />
     <Compile Include="WindowEnterValues.xaml.cs">
       <DependentUpon>WindowEnterValues.xaml</DependentUpon>
     </Compile>
@@ -97,8 +99,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GraphType\GEdge.cs" />
-    <Compile Include="GraphType\GVertex.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
