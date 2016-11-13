@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DMCP_Part_1
+namespace DMCP_Part1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +22,8 @@ namespace DMCP_Part_1
     {
         public MainWindow()
         {
-            MainWindowViewModel m = new MainWindowViewModel();
+            //Visualizer 
+            InitializeComponent();
         }
     }
 }
