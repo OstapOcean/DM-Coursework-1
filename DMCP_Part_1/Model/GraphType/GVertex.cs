@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace DMCP_Part_1
 {
-    [DebuggerDisplay("{ID}")]
 
     public class GVertex{
         private int _id;

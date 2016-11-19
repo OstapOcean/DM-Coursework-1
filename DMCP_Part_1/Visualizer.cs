@@ -42,8 +42,11 @@ namespace DMCP_Part_1
             graphToShow.AddVertex(V);
             graphToShow.AddVertex(A);
             GEdge E = new GEdge(V, A, 1, 1);
-            graphToShow.AddEdge(E);
+            GEdge R = new GEdge(A, V, 2, 2);
 
+            graphToShow.AddEdge(R);
+            graphToShow.AddEdge(E);
+            
             layoutAlgorithmTypes.Add("BoundedFR");
             layoutAlgorithmTypes.Add("Circular");
             layoutAlgorithmTypes.Add("CompoundFDP");
@@ -54,7 +57,7 @@ namespace DMCP_Part_1
             layoutAlgorithmTypes.Add("LinLog");
             layoutAlgorithmTypes.Add("Tree");
 
-            LayoutAlgorithmType = "LinLog";
+            LayoutAlgorithmType = "BoundedFR";
         }
 
 

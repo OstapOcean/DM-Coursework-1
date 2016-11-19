@@ -7,6 +7,8 @@
         Title="OutputWindow" Height="300" Width="300">
      
         <Grid>
+            
+            
         <zoom:ZoomControl>
 
             <local:TransportGraphLayout x:Name="graphLayout" Margin="10"

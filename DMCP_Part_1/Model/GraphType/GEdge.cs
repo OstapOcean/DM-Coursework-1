@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuickGraph;
-using System.Diagnostics;
-
 
 namespace DMCP_Part_1
 {
-    [DebuggerDisplay("{Cost}/{Capacity}")]
-    public class GEdge:Edge<GVertex>
+    public class GEdge:Edge<GVertex>,ITagged<string>
     {
         private int _cost;
         public int Cost
@@ -28,10 +25,20 @@ namespace DMCP_Part_1
             _cost = cost;
             _capacity = capacity;
         }
+        
 
-        public override string ToString()
+        public string Tag
         {
-            return string.Format("{0}/{1}",Cost,Capacity );
+            get
+            {
+                return string.Format("{0}/{1}", Cost, Capacity);
+            }
+            set
+            {
+
+            }
         }
+
+        public event EventHandler TagChanged;
     }
 }
