@@ -3,13 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:graphx="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
         xmlns:local="clr-namespace:DMCP_Part_1"
-        Title="OutputWindow" Height="382" Width="749">
+        Title="OutputWindow" Height="436" Width="749">
     <Grid>
-        <graphx:ZoomControl x:Name="zoomctrl">
-            <local:GArea x:Name="Area" Margin="40,28,-262,-242" RenderTransformOrigin="0.635,0.652">
-                <Menu Height="100" Canvas.Left="67" Canvas.Top="-54" Width="100"/>
-                <Menu/>
-            </local:GArea>
-        </graphx:ZoomControl>
+        <Grid Margin="0,0,408,0">
+            <graphx:ZoomControl x:Name="zoomctrl" Margin="0,0,0,24">
+             <local:GArea x:Name="Area" Margin="40,28,-262,-242" RenderTransformOrigin="0.635,0.652">
+                 <Menu Height="100" Canvas.Left="67" Canvas.Top="-54" Width="100"/>
+                 <Menu/>
+             </local:GArea>
+            </graphx:ZoomControl>
+        </Grid>
+        <Grid Margin="351,0,0,0">
+            <graphx:ZoomControl x:Name="zoomctrl1" Margin="0,0,0,25">
+                <local:GArea x:Name="Area1" Margin="40,28,-262,-242" RenderTransformOrigin="0.635,0.652">
+                    <Menu Height="100" Canvas.Left="67" Canvas.Top="-54" Width="100"/>
+                    <Menu/>
+                </local:GArea>
+            </graphx:ZoomControl>
+        </Grid>
     </Grid>
 </Window>

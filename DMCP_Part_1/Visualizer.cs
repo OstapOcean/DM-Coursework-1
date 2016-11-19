@@ -13,7 +13,7 @@ using GraphX.PCL.Logic.Models;
 namespace DMCP_Part_1
 {
 
-    class Visualizer : INotifyPropertyChanged
+    class Visualizer 
     {
         public void IncreaseListIterator()
         {
@@ -22,6 +22,7 @@ namespace DMCP_Part_1
                 ListIterator += 1;
             }
         }
+
         private int ListIterator = 0;
 
         private TransportNetwork transportNet;
@@ -57,14 +58,5 @@ namespace DMCP_Part_1
             incrementalGraphsToShow.Add(args.IncrementalGraph);
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(String info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
-        }
     }
 }
