@@ -41,9 +41,7 @@ namespace DMCP_Part_1
             _capacity = capacity;
             _costFlow = costFlow;
         }
-        //
-        public TransportNetwork() { }
-        //
+       
         private TransportGraph FormIncrementalGraph(int[][] incrementalNet) {
             TransportGraph intermediateGrap = new TransportGraph();
             List<GVertex> vertexList = new List<GVertex>();

@@ -21,13 +21,6 @@ namespace DMCP_Part_1
         {
             get { return _capacity; }
         }
-        public GEdge(GVertex source, GVertex target,int capacity, int cost,int id)
-            : base(source, target)
-        {
-            _cost = cost;
-            _capacity = capacity;
-            ID = id;
-        }
         public GEdge(GVertex source, GVertex target, int capacity, int cost)
             : base(source, target)
         {

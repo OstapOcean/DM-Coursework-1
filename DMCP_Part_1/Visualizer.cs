@@ -12,60 +12,50 @@ using GraphX.PCL.Logic.Models;
 
 namespace DMCP_Part_1
 {
-  
+
     class Visualizer : INotifyPropertyChanged
     {
-        private TransportGraph graphToShow;
-        public TransportGraph GraphToShow
+        public void IncreaseListIterator()
+        {
+            if (ListIterator + 1 < flowGraphsToShow.Count)
+            {
+                ListIterator += 1;
+            }
+        }
+        private int ListIterator = 0;
+
+        private TransportNetwork transportNet;
+
+        private List<TransportGraph> flowGraphsToShow;
+        public TransportGraph FlowGraphToShow
         {
             get
             {
-                return graphToShow;
+                return flowGraphsToShow!=null ? flowGraphsToShow[ListIterator]:null;
             }
         }
-        GArea gg_Area;
-        private string layoutAlgorithmType;
-        private List<String> layoutAlgorithmTypes = new List<string>();
-        public string LayoutAlgorithmType
+
+        private List<TransportGraph> incrementalGraphsToShow;
+        public TransportGraph IncrementalGraphToShow
         {
-            get { return layoutAlgorithmType; }
-            set
+            get
             {
-                layoutAlgorithmType = value;
-                NotifyPropertyChanged("LayoutAlgorithmType");
+                return incrementalGraphsToShow != null ? incrementalGraphsToShow[ListIterator] : null;
             }
         }
-        public Visualizer()
+
+
+        public Visualizer(int givenFlow, int[][] costFlow, int[][] capacity)
         {
-            gg_Area = new GArea();
-            GVertex V = new GVertex(1);
-            GVertex A = new GVertex(2);
-
-            graphToShow = new TransportGraph();
-            graphToShow.AddVertex(V);
-            graphToShow.AddVertex(A);
-            GEdge E = new GEdge(V, A, 1, 1,1);
-            GEdge R = new GEdge(A, V, 2, 2,2);
-
-            graphToShow.AddEdge(R);
-            graphToShow.AddEdge(E);
-            
-            layoutAlgorithmTypes.Add("BoundedFR");
-            layoutAlgorithmTypes.Add("Circular");
-            layoutAlgorithmTypes.Add("CompoundFDP");
-            layoutAlgorithmTypes.Add("EfficientSugiyama");
-            layoutAlgorithmTypes.Add("FR");
-            layoutAlgorithmTypes.Add("ISOM");
-            layoutAlgorithmTypes.Add("KK");
-            layoutAlgorithmTypes.Add("LinLog");
-            layoutAlgorithmTypes.Add("Tree");
-
-            LayoutAlgorithmType = "BoundedFR";
-
-            gg_Area.GenerateGraph(graphToShow);
-            
+            transportNet = new TransportNetwork(capacity, costFlow);
+            transportNet.IntermediateTransportNetResult += new IntermediateGraphDelegate(CatchGraps);
+            transportNet.FlowMinCost(givenFlow);
         }
-
+        void CatchGraps(object sender,IntermediateTransportNetEventArgs args)
+        {
+            flowGraphsToShow.Add(args.FlowGraph);
+            incrementalGraphsToShow.Add(args.IncrementalGraph);
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

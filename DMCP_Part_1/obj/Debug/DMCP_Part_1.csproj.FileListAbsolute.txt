@@ -60,8 +60,6 @@ C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.Pr
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.csproj.GenerateResource.Cache
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.pdb
-C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphSharp.Controls.dll
-C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphSharp.dll
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\QuickGraph.Data.dll
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\QuickGraph.dll
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\QuickGraph.Graphviz.dll
@@ -112,3 +110,6 @@ C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.g.res
 C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.Properties.Resources.resources
 C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.csproj.GenerateResource.Cache
 C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.PCL.Common.dll
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.PCL.Logic.dll
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.WPF.Controls.dll

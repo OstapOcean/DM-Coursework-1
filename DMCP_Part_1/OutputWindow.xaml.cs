@@ -15,23 +15,6 @@ using GraphX.Controls;
 using GraphX.PCL.Common.Enums;
 using GraphX.PCL.Logic.Algorithms.LayoutAlgorithms;
 
-//namespace DMCP_Part_1
-//{
-//    /// <summary>
-//    /// Interaction logic for OutputWindow.xaml
-//    /// </summary>
-//    public partial class OutputWindow : Window
-//    {
-//        public OutputWindow()
-//        {
-//            Visualizer visualizer = new Visualizer();
-//            DataContext = visualizer;
-//            InitializeComponent();
-//        }
-
-//    }
-//}
-
 
 /* Some notes about the main objects and types in this example:
  * 
@@ -53,9 +36,10 @@ namespace DMCP_Part_1
     /// </summary>
     public partial class OutputWindow : Window
     {
-        
+        private Visualizer visualizer;
         public OutputWindow()
         {
+
             InitializeComponent();
 
             //Customize Zoombox a bit
@@ -83,7 +67,7 @@ namespace DMCP_Part_1
             //Optionaly we set second param to True (True by default) so this method will automaticaly checks and assigns missing unique data ids
             //for edges and vertices in _dataGraph.
             //Note! Area.Graph property will be replaced by supplied _dataGraph object (if any).
-            Area.GenerateGraph(true, true);
+            Area.GenerateGraph(GraphExample_Setup());
 
             /* 
              * After graph generation is finished you can apply some additional settings for newly created visual vertex and edge controls
@@ -99,11 +83,11 @@ namespace DMCP_Part_1
             //This method sets edges arrows visibility. It is also applied to all edges in Area.EdgesList. You can also set property for
             //each edge individually using property, for ex: Area.EdgesList[0].ShowArrows = true;
             Area.ShowAllEdgesArrows(true);
-
+            Area.AlignAllEdgesLabels(false);
+            
             //This method sets edges labels visibility. It is also applied to all edges in Area.EdgesList. You can also set property for
             //each edge individually using property, for ex: Area.EdgesList[0].ShowLabel = true;
             Area.ShowAllEdgesLabels(true);
-
             zoomctrl.ZoomToFill();
         }
      
@@ -130,9 +114,12 @@ namespace DMCP_Part_1
             //get the indexed list of graph vertices we have already added
             var vlist = dataGraph.Vertices.ToList();
             //Then create two edges optionaly defining Text property to show who are connected
-            var dataEdge = new GEdge(vlist[0], vlist[1],1,1) { Text = string.Format("{0} -> {1}", vlist[0], vlist[1]) };
+            var dataEdge = new GEdge(vlist[0], vlist[1],1,0) { Text = string.Format("{0} -> {1}", vlist[0], vlist[1]) };
+
             dataGraph.AddEdge(dataEdge);
                 dataEdge = new GEdge(vlist[2], vlist[3],2,2) { Text = string.Format("{0} -> {1}", vlist[2], vlist[3]) };
+            dataGraph.AddEdge(dataEdge);
+            dataEdge = new GEdge(vlist[1], vlist[0], 0, 1) { Text = string.Format("{0} -> {1}", vlist[0], vlist[1]) };
             dataGraph.AddEdge(dataEdge);
 
             return dataGraph;
@@ -162,12 +149,12 @@ namespace DMCP_Part_1
             //For ex., SimpleER algorithm will try to set edge paths around vertices so no edge will intersect any vertex.
             //Bundling algorithm will try to tie different edges that follows same direction to a single channel making complex graphs more appealing.
             logicCore.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.SimpleER;
-
+            logicCore.EnableParallelEdges = true;
             //This property sets async algorithms computation so methods like: Area.RelayoutGraph() and Area.GenerateGraph()
             //will run async with the UI thread. Completion of the specified methods can be catched by corresponding events:
             //Area.RelayoutFinished and Area.GenerateGraphFinished.
             logicCore.AsyncAlgorithmCompute = false;
-
+            
             //Finally assign logic core to GraphArea object
             Area.LogicCore = logicCore;
         }
