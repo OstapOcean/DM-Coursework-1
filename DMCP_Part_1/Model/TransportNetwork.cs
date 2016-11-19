@@ -28,7 +28,7 @@ namespace DMCP_Part_1
         }
     }
 
-    static class TransportNetwork
+    class TransportNetwork
     {
         public event IntermediateGraphDelegate IntermediateTransportNetResult;
         private const int INFINITY = 9999;

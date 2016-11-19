@@ -53,8 +53,6 @@ C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.ex
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.exe
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.csprojResolveAssemblyReference.cache
-C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\MainWindow.baml
-C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\MainWindow.g.cs
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\App.g.cs
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1_MarkupCompile.cache
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.g.resources
@@ -79,3 +77,9 @@ C:\Users\A\Desktop\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
 H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe.config
 H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.exe
 H:\Users\Ostap Bender\Documents\IT\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\InputWindow.g.cs
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\OutputWindow.g.cs
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1_MarkupCompile.lref
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\InputWindow.baml
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\OutputWindow.baml

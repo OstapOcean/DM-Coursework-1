@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuickGraph;
+using System.Diagnostics;
+
 
 namespace DMCP_Part_1
 {
+    [DebuggerDisplay("{Cost}/{Capacity}")]
     public class GEdge:Edge<GVertex>
     {
         private int _cost;
@@ -26,5 +29,9 @@ namespace DMCP_Part_1
             _capacity = capacity;
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0}/{1}",Cost,Capacity );
+        }
     }
 }
