@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GraphX;
+using GraphX.PCL.Common.Models;
 
 namespace DMCP_Part_1
 {
 
-    public class GVertex{
-        private int _id;
-        public int ID
-        {
-            get { return _id; }
-        }
+    public class GVertex : VertexBase
+    {
+        
         public GVertex(int id)
         {
-            _id = id;
+            ID = id;
         }
         public override string ToString()
         {

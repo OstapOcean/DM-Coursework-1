@@ -83,3 +83,32 @@ C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\GeneratedInter
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\DMCP_Part_1_MarkupCompile.lref
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\InputWindow.baml
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\OutputWindow.baml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe.config
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.exe
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.pdb
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\DMCP_Part_1.exe
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\DMCP_Part_1.pdb
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\GraphX.PCL.Common.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\GraphX.PCL.Logic.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\GraphX.WPF.Controls.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Data.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Graphviz.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Serialization.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\WPFExtensions.dll
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.xml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Data.xml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Graphviz.xml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\bin\Debug\QuickGraph.Serialization.xml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.csprojResolveAssemblyReference.cache
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\InputWindow.g.cs
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\OutputWindow.g.cs
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\App.g.cs
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1_MarkupCompile.cache
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1_MarkupCompile.lref
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\InputWindow.baml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\OutputWindow.baml
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.g.resources
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.Properties.Resources.resources
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\DMCP_Part_1.csproj.GenerateResource.Cache
+C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
 using QuickGraph;
+using GraphX.PCL.Logic.Models;
+
 
 namespace DMCP_Part_1
 {
@@ -21,7 +23,7 @@ namespace DMCP_Part_1
                 return graphToShow;
             }
         }
-
+        GArea gg_Area;
         private string layoutAlgorithmType;
         private List<String> layoutAlgorithmTypes = new List<string>();
         public string LayoutAlgorithmType
@@ -35,14 +37,15 @@ namespace DMCP_Part_1
         }
         public Visualizer()
         {
+            gg_Area = new GArea();
             GVertex V = new GVertex(1);
             GVertex A = new GVertex(2);
 
-            graphToShow = new TransportGraph(1,1);
+            graphToShow = new TransportGraph();
             graphToShow.AddVertex(V);
             graphToShow.AddVertex(A);
-            GEdge E = new GEdge(V, A, 1, 1);
-            GEdge R = new GEdge(A, V, 2, 2);
+            GEdge E = new GEdge(V, A, 1, 1,1);
+            GEdge R = new GEdge(A, V, 2, 2,2);
 
             graphToShow.AddEdge(R);
             graphToShow.AddEdge(E);
@@ -58,6 +61,9 @@ namespace DMCP_Part_1
             layoutAlgorithmTypes.Add("Tree");
 
             LayoutAlgorithmType = "BoundedFR";
+
+            gg_Area.GenerateGraph(graphToShow);
+            
         }
 
 

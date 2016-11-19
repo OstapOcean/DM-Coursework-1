@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuickGraph;
+using GraphX.PCL.Common.Models;
+
 
 namespace DMCP_Part_1
 {
-    public class GEdge:Edge<GVertex>,ITagged<string>
+    public class GEdge : EdgeBase<GVertex>
     {
         private int _cost;
         public int Cost
@@ -19,26 +21,28 @@ namespace DMCP_Part_1
         {
             get { return _capacity; }
         }
-        public GEdge(GVertex source, GVertex target,int capacity, int cost)
+        public GEdge(GVertex source, GVertex target,int capacity, int cost,int id)
+            : base(source, target)
+        {
+            _cost = cost;
+            _capacity = capacity;
+            ID = id;
+        }
+        public GEdge(GVertex source, GVertex target, int capacity, int cost)
             : base(source, target)
         {
             _cost = cost;
             _capacity = capacity;
         }
-        
-
-        public string Tag
+        string _text;
+        public string Text
         {
-            get
-            {
-                return string.Format("{0}/{1}", Cost, Capacity);
-            }
-            set
-            {
-
-            }
+            get { return String.Format("{0}/{1}", Cost, Capacity); }
+            set { _text = value; }
         }
-
-        public event EventHandler TagChanged;
+        public override string ToString()
+        {
+            return Text;
+        }
     }
 }

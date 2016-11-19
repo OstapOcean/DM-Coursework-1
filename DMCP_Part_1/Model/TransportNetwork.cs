@@ -45,7 +45,7 @@ namespace DMCP_Part_1
         public TransportNetwork() { }
         //
         private TransportGraph FormIncrementalGraph(int[][] incrementalNet) {
-            TransportGraph intermediateGrap = new TransportGraph(0, 0);
+            TransportGraph intermediateGrap = new TransportGraph();
             List<GVertex> vertexList = new List<GVertex>();
             for (int i = 0; i < incrementalNet.Length; ++i)
             {
@@ -69,7 +69,7 @@ namespace DMCP_Part_1
         }
         private TransportGraph FormFlowGraph(int[][] flowNet,int[][] incrementalGraph,int currnetFlow,int deltaFlow)
         {
-            TransportGraph intermediateGrap = new TransportGraph(currnetFlow,deltaFlow);
+            TransportGraph intermediateGrap = new TransportGraph();
             List<GVertex> vertexList = new List<GVertex>();
             for (int i = 0; i < flowNet.Length; ++i)
             {
