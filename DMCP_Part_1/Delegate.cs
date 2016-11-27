@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DMCP_Part_1 {
-	class Delegate : ICommand {
+	public class Delegate : ICommand {
 		private readonly Action<object> execute;
 		public void Execute (object parameter) {
 			execute(parameter);

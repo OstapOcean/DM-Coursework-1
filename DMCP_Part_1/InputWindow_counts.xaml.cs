@@ -12,15 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using DMCP_Part_1.Controllers;
+
 namespace DMCP_Part_1 {
 	/// <summary>
 	/// Логика взаимодействия для InputWindow.xaml
 	/// </summary>
-	public partial class InputWindow : Window {
-		public InputWindow (InputController controller) {
+	public partial class InputWindow_counts : Window {
+
+		private readonly InputController controller;
+
+		public InputWindow_counts () {
 			InitializeComponent();
+			controller = new InputController();
 			DataContext = controller;
-			costMatrix_dataGrid.ItemsSource = controller.CostTable_dataTable.DefaultView;
 		}
 	}
 }

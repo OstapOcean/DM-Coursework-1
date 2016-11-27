@@ -1,0 +1,64 @@
+﻿<Window x:Class="DMCP_Part_1.InputWindow_counts"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:DMCP_Part_1"
+		mc:Ignorable="d"
+		Title="InputWindow"
+		Height="153"
+		Width="440">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="10" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="10" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition Width="200" />
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition Width="200" />
+			<ColumnDefinition Width="10" />
+		</Grid.ColumnDefinitions>
+
+		<Label x:Name="providers_label"
+			   Width="200"
+			   Height="25"
+			   Content="Количество поставщиков"
+			   Grid.Column="1"
+			   Grid.Row="1"
+			   Margin="1,0,0,0" />
+		<TextBox x:Name="providers_textBox"
+				 Height="25"
+				 Width="200"
+				 Text="{Binding ProvidersCount}"
+				 Grid.Column="3"
+				 Grid.Row="1" />
+		<Label x:Name="receiver_label"
+			   Width="200"
+			   Height="25"
+			   Content="Количество потребителей"
+			   Grid.Column="1"
+			   Grid.Row="3"
+			   Margin="1,0,0,0" />
+		<TextBox x:Name="receiver_textBox"
+				 Width="200"
+				 Height="25"
+				 Text="{Binding ReceiversCount}"
+				 Grid.Column="3"
+				 Grid.Row="3" />
+		<Button x:Name="button"
+				Content="Ввести значения"
+				Command="{Binding CreateInputContainers_delegate}"
+				Grid.Column="1"
+				Grid.Row="5"
+				HorizontalAlignment="Left"
+				Width="201" />
+
+	</Grid>
+</Window>

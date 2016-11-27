@@ -87,8 +87,12 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\InputController.cs" />
     <Compile Include="Delegate.cs" />
+    <Compile Include="InputController.cs" />
     <Compile Include="InputWindow.xaml.cs">
       <DependentUpon>InputWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputWindow_counts.xaml.cs">
+      <DependentUpon>InputWindow_counts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GraphType\GArea.cs" />
     <Compile Include="Model\GraphType\GXLogicCore .cs" />
@@ -98,6 +102,10 @@
     </Compile>
     <Compile Include="Visualizer.cs" />
     <Page Include="InputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InputWindow_counts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
