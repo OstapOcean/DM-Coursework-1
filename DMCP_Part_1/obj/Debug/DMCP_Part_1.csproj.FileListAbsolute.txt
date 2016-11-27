@@ -113,3 +113,5 @@ C:\Users\A\Desktop\Новая папка\DMCP_Part_1\obj\Debug\GeneratedInternal
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.PCL.Common.dll
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.PCL.Logic.dll
 C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\bin\Debug\GraphX.WPF.Controls.dll
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\InputWindow_counts.g.cs
+C:\Users\A\Documents\GitHub\DM-Coursework-1\DMCP_Part_1\obj\Debug\InputWindow_counts.baml

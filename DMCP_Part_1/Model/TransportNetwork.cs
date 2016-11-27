@@ -10,6 +10,8 @@ namespace DMCP_Part_1
     public delegate void IntermediateGraphDelegate(object sender, IntermediateTransportNetEventArgs args);
     public class IntermediateTransportNetEventArgs : EventArgs
     {
+        public readonly int currentFlow;
+        public readonly int deltaF;
         private TransportGraph _flowGraph;
         public TransportGraph FlowGraph
         {
@@ -21,10 +23,12 @@ namespace DMCP_Part_1
             get { return _incrementalGraph; }
         }
 
-        public IntermediateTransportNetEventArgs(TransportGraph incrementalGraph,TransportGraph flowGraph)
+        public IntermediateTransportNetEventArgs(TransportGraph incrementalGraph,TransportGraph flowGraph,int currentFlow, int deltaF)
         {
             _flowGraph = flowGraph;
             _incrementalGraph = incrementalGraph;
+            this.currentFlow = currentFlow;
+            this.deltaF = deltaF;
         }
     }
 
@@ -54,18 +58,23 @@ namespace DMCP_Part_1
 
             List<GEdge> edgesList = new List<GEdge>();
             for (int i = 0; i < incrementalNet.Length; ++i)
-                for (int j = 0; j < incrementalNet.Length; ++j)
-                    if (incrementalNet[i][j] != INFINITY)
+                for (int j = i; j < incrementalNet.Length; ++j) {
+                    if (_costFlow[i][j] != INFINITY)
                     {
                         edgesList.Add(new GEdge(vertexList[i], vertexList[j], -1, incrementalNet[i][j]));
+                    }
+                    if (incrementalNet[j][i] < 0)
+                    {
                         edgesList.Add(new GEdge(vertexList[j], vertexList[i], -1, incrementalNet[j][i]));
                     }
+
+                }
             foreach (GEdge i in edgesList)
                 intermediateGrap.AddEdge(i);
 
             return intermediateGrap;
         }
-        private TransportGraph FormFlowGraph(int[][] flowNet,int[][] incrementalGraph,int currnetFlow,int deltaFlow)
+        private TransportGraph FormFlowGraph(int[][] flowNet)
         {
             TransportGraph intermediateGrap = new TransportGraph();
             List<GVertex> vertexList = new List<GVertex>();
@@ -78,10 +87,10 @@ namespace DMCP_Part_1
 
             List<GEdge> edgesList = new List<GEdge>();
             for (int i = 0; i < flowNet.Length; ++i)
-                for (int j = 0; j < flowNet.Length; ++j)
-                    if (incrementalGraph[i][j] != INFINITY)
+                for (int j = i; j < flowNet.Length; ++j)
+                    if (_costFlow[i][j] != INFINITY)
                     {
-                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],flowNet[i][j],-1));
+                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],-1,flowNet[i][j]));
                     }
             foreach (GEdge i in edgesList)
                 intermediateGrap.AddEdge(i);
@@ -157,7 +166,9 @@ namespace DMCP_Part_1
 
                 var args = new IntermediateTransportNetEventArgs(
                     FormIncrementalGraph(incrementalGraph),
-                    FormFlowGraph(flowsGraph,incrementalGraph,currentFlow,deltaF)
+                    FormFlowGraph(flowsGraph), 
+                    currentFlow, 
+                    deltaF
                     );
                 IntermediateTransportNetResult(this, args);
             }
