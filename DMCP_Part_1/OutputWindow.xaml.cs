@@ -148,13 +148,10 @@ namespace DMCP_Part_1
 
         private void Button_Click_ResultGraph(object sender, RoutedEventArgs e)
         {
-            visualizer.LastIndex(); 
+            visualizer.GoToLastIndex(); 
             GraphAreaLogicSetup();
             GraphsRendering();
         }
-
-
-        public int DeltaFlow { get { return visualizer.DeltaFlow; } }
 
     }
 }

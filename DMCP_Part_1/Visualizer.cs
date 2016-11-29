@@ -17,10 +17,16 @@ namespace DMCP_Part_1
     {
         private TransportNetwork network;
 
-        private int deltaF;
-        public int DeltaFlow { get { return deltaF; } }
-        private int currentFlow;
-        public int CurrentFlow { get { return currentFlow; } }
+        private List<int> deltaF;
+        public int DeltaFlow { get { return deltaF[listIndex]; } }
+        private List<int> currentFlow;
+        public int CurrentFlow { get { return currentFlow[listIndex]; } }
+
+        private int listIndex = 0;
+        public int CurrentIteration
+        {
+            get { return listIndex; }
+        }
 
 
         private List<TransportGraph> incrementalGraphraphList;
@@ -40,15 +46,22 @@ namespace DMCP_Part_1
                 return flowGraphraphList[listIndex];
             }
         }
-        private int listIndex = 0;
-        public void LastIndex()
+
+
+        public void GoToLastIndex()
         {
             listIndex = flowGraphraphList.Count - 1;
+            OnPropertyChanged("DeltaFlow");
+            OnPropertyChanged("CurrentFlow");
+            OnPropertyChanged("CurrentIteration");
         }
         public void IncGraphListIndex()
         {
             if (listIndex + 1 < flowGraphraphList.Count) {
                 listIndex = listIndex + 1;
+                OnPropertyChanged("DeltaFlow");
+                OnPropertyChanged("CurrentFlow");
+                OnPropertyChanged("CurrentIteration");
             }
         }
         public void DecGgraphListIndex()
@@ -56,6 +69,9 @@ namespace DMCP_Part_1
             if (listIndex -1  >=0 )
             {
                 listIndex = listIndex - 1;
+                OnPropertyChanged("DeltaFlow");
+                OnPropertyChanged("CurrentFlow");
+                OnPropertyChanged("CurrentIteration");
             }
         }
 
@@ -86,20 +102,36 @@ namespace DMCP_Part_1
 			//			 new int[]{0,0,0,0,0,0,0,0,10},
 			//			 new int[]{0,0,0,0,0,0,0,0,0}
 			//};
-
+            int maxProvidersFlow=0;
+            for (int i = 0; i < capacityMatrix.Length; ++i)
+            {
+                maxProvidersFlow += capacityMatrix[0][i];
+            }
+            int maxConsumersFlow = 0;
+            for (int i = 0; i < capacityMatrix[0].Length; ++i)
+            {
+                maxConsumersFlow += capacityMatrix[i][capacityMatrix[0].Length - 1];
+            }
+            int searchFlow = maxProvidersFlow > maxConsumersFlow ? maxConsumersFlow : maxProvidersFlow;
 			network = new TransportNetwork(capacityMatrix, costMatrix);
             network.IntermediateTransportNetResult += new IntermediateGraphDelegate(Catcher);
-            network.FlowMinCost(158);
+            network.FlowMinCost(searchFlow);
         }
 
         private void Catcher(object sender, IntermediateTransportNetEventArgs args)
         {
             flowGraphraphList.Add(args.FlowGraph);
             incrementalGraphraphList.Add(args.IncrementalGraph);
-            deltaF=args.deltaF;
-            currentFlow = args.currentFlow;
+            deltaF.Add(args.deltaF);
+            currentFlow.Add(args.currentFlow);
         }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyChanged)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyChanged));
+        } 
     }
 }

@@ -12,33 +12,25 @@ namespace DMCP_Part_1
     public class GEdge : EdgeBase<GVertex>
     {
         
-        private int _cost;
-        public int Cost
+        private int _value;
+        public int Value
         {
-            get { return _cost; }
+            get { return _value; }
         }
-        private int _capacity;
-        public int Capacity
-        {
-            get { return _capacity; }
-        }
-        public GEdge(GVertex source, GVertex target,int capacity, int cost,int id)
+ 
+       
+        public GEdge(GVertex source, GVertex target, int value)
             : base(source, target)
         {
-            _cost = cost;
-            _capacity = capacity;
-            ID = id;
-        }
-        public GEdge(GVertex source, GVertex target, int capacity, int cost)
-            : base(source, target)
-        {
-            _cost = cost;
-            _capacity = capacity;
+            _value = value;
         }
         string _text;
         public string Text
         {
-            get { return String.Format("{0}", Cost); }
+            get { 
+                return String.Format("{0}", 
+                    Value == 9999 ?"\u221E" :Value.ToString()
+                    ); }
             set { _text = value; }
         }
         public override string ToString()

@@ -61,11 +61,11 @@ namespace DMCP_Part_1
                 for (int j = i; j < incrementalNet.Length; ++j) {
                     if (_costFlow[i][j] != INFINITY)
                     {
-                        edgesList.Add(new GEdge(vertexList[i], vertexList[j], -1, incrementalNet[i][j]));
+                        edgesList.Add(new GEdge(vertexList[i], vertexList[j], incrementalNet[i][j]));
                     }
                     if (incrementalNet[j][i] < 0)
                     {
-                        edgesList.Add(new GEdge(vertexList[j], vertexList[i], -1, incrementalNet[j][i]));
+                        edgesList.Add(new GEdge(vertexList[j], vertexList[i], incrementalNet[j][i]));
                     }
 
                 }
@@ -90,7 +90,7 @@ namespace DMCP_Part_1
                 for (int j = i; j < flowNet.Length; ++j)
                     if (_costFlow[i][j] != INFINITY)
                     {
-                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],-1,flowNet[i][j]));
+                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],flowNet[i][j]));
                     }
             foreach (GEdge i in edgesList)
                 intermediateGrap.AddEdge(i);

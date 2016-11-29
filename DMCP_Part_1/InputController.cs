@@ -147,7 +147,7 @@ namespace DMCP_Part_1 {
 			CreateCapacityMatrix();
 			CreateCostMatrix();
 
-			Application.Current.Windows[2].Close();
+			//Application.Current.Windows[2].Close();
 			new OutputWindow(costMatrix, capacityMatrix).ShowDialog();
 			//new OutputWindow().ShowDialog();
 		}
