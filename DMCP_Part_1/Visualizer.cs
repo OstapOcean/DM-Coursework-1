@@ -59,34 +59,35 @@ namespace DMCP_Part_1
             }
         }
 
-        public Visualizer()
+        public Visualizer(int[][] costMatrix, int[][]capacityMatrix)
         {
             flowGraphraphList = new List<TransportGraph>();
             incrementalGraphraphList = new List<TransportGraph>();
             int q =9999;
-            int[][] cost ={
-                         new int[]{q,0,0,0,q,q,q,q,q},
-                         new int[]{q,q,q,q,10,11,18,32,q},
-                         new int[]{q,q,q,q,16,14,20,25,q},
-                         new int[]{q,q,q,q,26,28,22,30,q},
-                         new int[]{q,q,q,q,q,q,q,q,0},
-                         new int[]{q,q,q,q,q,q,q,q,0},
-                         new int[]{q,q,q,q,q,q,q,q,0},
-                         new int[]{q,q,q,q,q,q,q,q,0},
-                         new int[]{q,q,q,q,q,q,q,q,q}
-            };
-              int[][] capacity ={
-                         new int[]{0,41,50,89,0,0,0,0,0},
-                         new int[]{0,0,0,0,q,q,q,q,0},
-                         new int[]{0,0,0,0,q,q,q,q,0},
-                         new int[]{0,0,0,0,q,q,q,q,0},
-                         new int[]{0,0,0,0,0,0,0,0,44},
-                         new int[]{0,0,0,0,0,0,0,0,33},
-                         new int[]{0,0,0,0,0,0,0,0,71},
-                         new int[]{0,0,0,0,0,0,0,0,10},
-                         new int[]{0,0,0,0,0,0,0,0,0}
-            };
-            network=new TransportNetwork(capacity,cost);
+			//int[][] costMatrix ={
+			//			 new int[]{q,0,0,0,q,q,q,q,q},
+			//			 new int[]{q,q,q,q,10,11,18,32,q},
+			//			 new int[]{q,q,q,q,16,14,20,25,q},
+			//			 new int[]{q,q,q,q,26,28,22,30,q},
+			//			 new int[]{q,q,q,q,q,q,q,q,0},
+			//			 new int[]{q,q,q,q,q,q,q,q,0},
+			//			 new int[]{q,q,q,q,q,q,q,q,0},
+			//			 new int[]{q,q,q,q,q,q,q,q,0},
+			//			 new int[]{q,q,q,q,q,q,q,q,q}
+			//};
+			//int[][] capacityMatrix ={
+			//			 new int[]{0,41,50,89,0,0,0,0,0},
+			//			 new int[]{0,0,0,0,q,q,q,q,0},
+			//			 new int[]{0,0,0,0,q,q,q,q,0},
+			//			 new int[]{0,0,0,0,q,q,q,q,0},
+			//			 new int[]{0,0,0,0,0,0,0,0,44},
+			//			 new int[]{0,0,0,0,0,0,0,0,33},
+			//			 new int[]{0,0,0,0,0,0,0,0,71},
+			//			 new int[]{0,0,0,0,0,0,0,0,10},
+			//			 new int[]{0,0,0,0,0,0,0,0,0}
+			//};
+
+			network = new TransportNetwork(capacityMatrix, costMatrix);
             network.IntermediateTransportNetResult += new IntermediateGraphDelegate(Catcher);
             network.FlowMinCost(158);
         }

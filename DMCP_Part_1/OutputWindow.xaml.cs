@@ -39,13 +39,14 @@ namespace DMCP_Part_1
     public partial class OutputWindow : Window
     {
         Visualizer visualizer;
-        public OutputWindow()
+        public OutputWindow(int[][] costMatrix, int[][] capacityMatrix)
         {
             InitializeComponent();
-            visualizer = new Visualizer();
-            //Customize Zoombox a bit
-            //Set minimap (overview) window to be visible by default
-            ZoomControl.SetViewFinderVisibility(zoomLeft, Visibility.Visible);
+			visualizer = new Visualizer(costMatrix, capacityMatrix);
+			//visualizer = new Visualizer();
+			//Customize Zoombox a bit
+			//Set minimap (overview) window to be visible by default
+			ZoomControl.SetViewFinderVisibility(zoomLeft, Visibility.Visible);
             ZoomControl.SetViewFinderVisibility(zoomRight, Visibility.Visible);
 
             //Lets setup GraphArea settings

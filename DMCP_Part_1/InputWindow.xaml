@@ -27,10 +27,10 @@
 			<ColumnDefinition Width="10" />
 		</Grid.ColumnDefinitions>
 		<DataGrid x:Name="Providers_dataGrid"
-				  Width="100"
 				  ItemsSource="{Binding ProvidersCapacity}"
 				  AutoGenerateColumns="False"
 				  CanUserAddRows="False"
+				  ColumnWidth="1*"
 				  Grid.Column="1"
 				  Grid.Row="1">
 			<DataGrid.Columns>
@@ -40,10 +40,10 @@
 		</DataGrid>
 
 		<DataGrid x:Name="Receivers_dataGrid"
-				  Width="100"
 				  ItemsSource="{Binding ReceiversCapacity}"
 				  AutoGenerateColumns="False"
 				  CanUserAddRows="False"
+				  ColumnWidth="1*"
 				  Grid.Column="3"
 				  Grid.Row="1">
 			<DataGrid.Columns>
@@ -54,7 +54,6 @@
 
 		<DataGrid x:Name="costMatrix_dataGrid"
 				  AutoGenerateColumns="True"
-				  Width="352"
 				  CanUserAddRows="False"
 				  Grid.Column="5"
 				  Grid.Row="1" />

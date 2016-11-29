@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Windows;
 
 namespace DMCP_Part_1 {
 
@@ -145,6 +146,10 @@ namespace DMCP_Part_1 {
 
 			CreateCapacityMatrix();
 			CreateCostMatrix();
+
+			Application.Current.Windows[2].Close();
+			new OutputWindow(costMatrix, capacityMatrix).ShowDialog();
+			//new OutputWindow().ShowDialog();
 		}
 
 		#endregion PublicMethods
