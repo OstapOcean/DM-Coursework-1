@@ -136,20 +136,34 @@ namespace DMCP_Part_1 {
 			get { return createMatrices_delegate ?? (createMatrices_delegate = new Delegate(CreateMatrices)); }
 		}
 		public void CreateMatrices (object args) {
+			bool isTableFull = true;
+
 			CostTable = new int[ProvidersCount][];
 			for (int i = 0; i < ProvidersCount; i++)
 				CostTable[i] = new int[ReceiversCount];
 
-			for (int i = 0; i < ProvidersCount; i++)
-				for (int j = 0; j < ReceiversCount; j++)
-					CostTable[i][j] = Int32.Parse(CostTable_dataTable.Rows[i][j].ToString());
+			for (int i = 0; i < ProvidersCount && isTableFull; i++)
+				for (int j = 0; j < ReceiversCount && isTableFull; j++)
+					try {
+						CostTable[i][j] = Int32.Parse(CostTable_dataTable.Rows[i][j].ToString());
+					}
+					catch {
+						isTableFull = false;
+					}
 
-			CreateCapacityMatrix();
-			CreateCostMatrix();
+			if (isTableFull) {
+				CreateCapacityMatrix();
+				CreateCostMatrix();
+				new OutputWindow(costMatrix, capacityMatrix).ShowDialog();
+			}
+			else {
+				ShowError();
+			}
+		}
 
-			//Application.Current.Windows[2].Close();
-			new OutputWindow(costMatrix, capacityMatrix).ShowDialog();
-			//new OutputWindow().ShowDialog();
+
+		void ShowError () {
+			MessageBox.Show("Не все ячейки были заполнены");
 		}
 
 		#endregion PublicMethods
@@ -168,10 +182,11 @@ namespace DMCP_Part_1 {
 			for (int i = 0; i < columnCount; i++)
 				CostTable_dataTable.Columns.Add(new DataColumn(i.ToString()));
 
-			DataRow[] array = new DataRow[columnCount];
+			DataRow[] dataRow = new DataRow[columnCount];
 
 			for (int i = 0; i < rowsCount; i++)
-				CostTable_dataTable.Rows.Add(array);
+				CostTable_dataTable.Rows.Add(dataRow);
+
 		}
 
 		private void CreateCapacityMatrix () {

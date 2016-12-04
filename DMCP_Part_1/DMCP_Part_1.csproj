@@ -101,6 +101,7 @@
       <DependentUpon>OutputWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Visualizer.cs" />
+    <Compile Include="VisualizerReserve.cs" />
     <Page Include="InputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

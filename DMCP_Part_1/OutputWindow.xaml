@@ -1,64 +1,80 @@
 ﻿<Window x:Class="DMCP_Part_1.OutputWindow"
-		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:graphx="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
-		xmlns:local="clr-namespace:DMCP_Part_1"
-		Title="OutputWindow"
-		Height="400"
-		Width="831">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:graphx="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
+        xmlns:local="clr-namespace:DMCP_Part_1"
+        Title="OutputWindow"
+        Height="400"
+        Width="831">
 
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="100" />
-			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="10" />
-			<ColumnDefinition Width="1*" />
-			<ColumnDefinition Width="10" />
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="10" />
-			<RowDefinition Height="1*" />
-			<RowDefinition Height="10" />
-		</Grid.RowDefinitions>
-		<Grid Grid.Column="1"
-			  Grid.Row="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="1*" />
-			</Grid.ColumnDefinitions>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="25" />
-				<RowDefinition Height="10" />
-				<RowDefinition Height="25" />
-				<RowDefinition Height="10" />
-				<RowDefinition Height="25" />
-				<RowDefinition Height="1*" />
-			</Grid.RowDefinitions>
-			<Button Content="Result"
-					Click="Button_Click_ResultGraph"
-					Grid.Row="0"
-					Grid.Column="1" />
-			<Button Content="Next Step"
-					Click="Button_Click_NextGraph"
-					Grid.Row="2"
-					Grid.Column="1" />
-			<Button Content="Prev Step"
-					Click="Button_Click_PrevGraph"
-					Grid.Row="4"
-					Grid.Column="1" />
-		</Grid>
-		<graphx:ZoomControl x:Name="zoomLeft"
-							Grid.Column="3"
-							Grid.Row="1" >
-			<local:GArea x:Name="FlowGraphArea">
-			</local:GArea>
-		</graphx:ZoomControl>
-		<graphx:ZoomControl x:Name="zoomRight"
-							Grid.Column="5"
-							Grid.Row="1">
-			<local:GArea x:Name="IncrementalGraphArea">
-			</local:GArea>
-		</graphx:ZoomControl>
-	</Grid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Button Content="Result"
+                    Click="Button_Click_ResultGraph"
+                    Grid.Row="0" />
+            <Button Content="Next Step"
+                    Click="Button_Click_NextGraph"
+                    Grid.Row="2" />
+            <Button Content="Prev Step"
+                    Click="Button_Click_PrevGraph"
+                    Grid.Row="4" />
+            <Label Content="{Binding CurrentIterationOutput}"
+                   Grid.Row="6" />
+            <Label Content="Текущий поток:"
+                   Grid.Row="8" />
+            <Label Content="{Binding CurrentFlow}"
+                   Grid.Row="9"
+                   Padding="15,5,5,5" />
+            <Label Content="Прирост потока:"
+                   Grid.Row="11" />
+            <Label Content="{Binding DeltaFlow}"
+                   Grid.Row="12"
+                   Padding="15,5,5,5" />
+        </Grid>
+        <graphx:ZoomControl x:Name="zoomLeft"
+                            Grid.Column="3"
+                            Grid.Row="1">
+            <local:GArea x:Name="FlowGraphArea">
+            </local:GArea>
+        </graphx:ZoomControl>
+        <graphx:ZoomControl x:Name="zoomRight"
+                            Grid.Column="5"
+                            Grid.Row="1">
+            <local:GArea x:Name="IncrementalGraphArea">
+            </local:GArea>
+        </graphx:ZoomControl>
+    </Grid>
 </Window>

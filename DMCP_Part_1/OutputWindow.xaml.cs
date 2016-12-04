@@ -43,6 +43,7 @@ namespace DMCP_Part_1
         {
             InitializeComponent();
 			visualizer = new Visualizer(costMatrix, capacityMatrix);
+			DataContext = visualizer;
 			//visualizer = new Visualizer();
 			//Customize Zoombox a bit
 			//Set minimap (overview) window to be visible by default
