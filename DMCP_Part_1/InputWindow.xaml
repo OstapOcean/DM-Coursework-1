@@ -64,6 +64,7 @@
 				Width="352"
 				Height="25"
 				Grid.Column="5"
-				Grid.Row="3" />
+				Grid.Row="3"
+                Cursor="Hand" />
 	</Grid>
 </Window>

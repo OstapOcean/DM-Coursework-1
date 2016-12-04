@@ -58,7 +58,8 @@
 				Grid.Column="1"
 				Grid.Row="5"
 				HorizontalAlignment="Left"
-				Width="201" />
+				Width="201"
+                Cursor="Hand" />
 
 	</Grid>
 </Window>

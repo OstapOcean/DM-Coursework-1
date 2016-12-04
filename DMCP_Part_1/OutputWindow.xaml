@@ -44,25 +44,26 @@
             </Grid.RowDefinitions>
             <Button Content="Result"
                     Click="Button_Click_ResultGraph"
-                    Grid.Row="0" />
+                    Grid.Row="0"
+                    Cursor="Hand" />
             <Button Content="Next Step"
                     Click="Button_Click_NextGraph"
-                    Grid.Row="2" />
+                    Grid.Row="2"
+                    Cursor="Hand" />
             <Button Content="Prev Step"
                     Click="Button_Click_PrevGraph"
-                    Grid.Row="4" />
+                    Grid.Row="4"
+                    Cursor="Hand" />
             <Label Content="{Binding CurrentIterationOutput}"
                    Grid.Row="6" />
             <Label Content="Текущий поток:"
                    Grid.Row="8" />
             <Label Content="{Binding CurrentFlow}"
-                   Grid.Row="9"
-                   Padding="15,5,5,5" />
+                   Grid.Row="9" />
             <Label Content="Прирост потока:"
                    Grid.Row="11" />
             <Label Content="{Binding DeltaFlow}"
-                   Grid.Row="12"
-                   Padding="15,5,5,5" />
+                   Grid.Row="12" />
         </Grid>
         <graphx:ZoomControl x:Name="zoomLeft"
                             Grid.Column="3"

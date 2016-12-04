@@ -28,7 +28,7 @@ namespace DMCP_Part_1 {
 		}
 		public string CurrentIterationOutput {
 			get {
-				return "Шаг " + CurrentIteration + " из " + (currentFlow.Count - 1);
+				return "Шаг " + (CurrentIteration + 1) + " из " + currentFlow.Count;
 			}
 		}
 
