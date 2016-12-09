@@ -63,18 +63,20 @@ namespace DMCP_Part_1
             FlowGraphArea.GenerateGraph(FlowGraph());
             IncrementalGraphArea.GenerateGraph(IncrementalGraph());
             FlowGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
-            FlowGraphArea.ShowAllEdgesArrows(true);
-            FlowGraphArea.ShowAllEdgesLabels(true); 
-            
+            FlowGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
+
             IncrementalGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
             IncrementalGraphArea.ShowAllEdgesArrows(true);
-            IncrementalGraphArea.ShowAllEdgesLabels(true);
-
+            IncrementalGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
             zoomLeft.ZoomToFill();
             zoomRight.ZoomToFill();
         }
-     
 
+        void EdgeClicked(object obj,EdgeClickedEventArgs args)
+        {
+            args.Control.ShowLabel = !(args.Control.ShowLabel == true);
+        }
+       
         private TransportGraph FlowGraph()
         {
             return visualizer.FlowGraphToShow;
@@ -87,8 +89,7 @@ namespace DMCP_Part_1
         {
             //Lets create logic core and filled data graph with edges and vertices
             var logicCoreFlow = new GXLogicCore() { Graph = FlowGraph() };
-            var logicCoreIncremental = new GXLogicCore() { Graph = FlowGraph() };            
-            
+            var logicCoreIncremental = new GXLogicCore() { Graph = IncrementalGraph() };            
             logicCoreIncremental.EnableParallelEdges = true;
 
             //This property sets layout algorithm that will be used to calculate vertices positions

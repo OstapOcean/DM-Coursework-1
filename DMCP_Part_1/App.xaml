@@ -10,8 +10,7 @@
              >
 
     <Application.Resources>
-        <Style TargetType="{x:Type controls:EdgeControl}">
-            <Setter Property="" Value="100"></Setter>
+        <Style TargetType="{x:Type controls:EdgeLabelControl}">
         </Style>
     </Application.Resources>
 </Application>

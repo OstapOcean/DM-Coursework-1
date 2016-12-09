@@ -10,9 +10,6 @@
 //------------------------------------------------------------------------------
 
 using DMCP_Part_1;
-using GraphX.Controls;
-using GraphX.Controls.Animations;
-using GraphX.Controls.Models;
 using System;
 using System.Diagnostics;
 using System.Windows;
