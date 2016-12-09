@@ -23,6 +23,7 @@ namespace DMCP_Part_1
             : base(source, target)
         {
             _value = value;
+            Weight = 111;
         }
         string _text;
         public string Text
@@ -37,5 +38,6 @@ namespace DMCP_Part_1
         {
             return Text;
         }
+        
     }
 }
