@@ -65,10 +65,16 @@ namespace DMCP_Part_1
             FlowGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
             FlowGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
 
-            IncrementalGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
+			FlowGraphArea.AlignAllEdgesLabels(true);
+			FlowGraphArea.ShowAllEdgesLabels(true);
+
+			IncrementalGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
             IncrementalGraphArea.ShowAllEdgesArrows(true);
             IncrementalGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
-            zoomLeft.ZoomToFill();
+
+			IncrementalGraphArea.ShowAllEdgesLabels(true);
+
+			zoomLeft.ZoomToFill();
             zoomRight.ZoomToFill();
         }
 
@@ -103,10 +109,10 @@ namespace DMCP_Part_1
             logicCoreIncremental.DefaultLayoutAlgorithmParams = logicCoreFlow.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.Sugiyama);
 
             //Unfortunately to change algo parameters you need to specify params type which is different for every algorithm.
-            ((SugiyamaLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = false;
+            ((SugiyamaLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = true;
             ((SugiyamaLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).PositionCalculationMethod = PositionCalculationMethodTypes.IndexBased;
 
-            ((SugiyamaLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = false;
+            ((SugiyamaLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = true;
             ((SugiyamaLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).PositionCalculationMethod = PositionCalculationMethodTypes.IndexBased;
             //This property sets vertex overlap removal algorithm.
             //Such algorithms help to arrange vertices in the layout so no one overlaps each other.

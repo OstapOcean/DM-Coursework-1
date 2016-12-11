@@ -27,39 +27,26 @@
 		</Grid.ColumnDefinitions>
 
 		<Label x:Name="providers_label"
-			   Width="200"
-			   Height="25"
 			   Content="Количество поставщиков"
 			   Grid.Column="1"
-			   Grid.Row="1"
-			   Margin="1,0,0,0" />
+			   Grid.Row="1" />
 		<TextBox x:Name="providers_textBox"
-				 Height="25"
-				 Width="200"
 				 Text="{Binding ProvidersCount}"
 				 Grid.Column="3"
 				 Grid.Row="1" />
 		<Label x:Name="receiver_label"
-			   Width="200"
-			   Height="25"
 			   Content="Количество потребителей"
 			   Grid.Column="1"
-			   Grid.Row="3"
-			   Margin="1,0,0,0" />
+			   Grid.Row="3" />
 		<TextBox x:Name="receiver_textBox"
-				 Width="200"
-				 Height="25"
 				 Text="{Binding ReceiversCount}"
 				 Grid.Column="3"
 				 Grid.Row="3" />
-		<Button x:Name="button"
-				Content="Ввести значения"
-				Command="{Binding CreateInputContainers_delegate}"
-				Grid.Column="1"
-				Grid.Row="5"
-				HorizontalAlignment="Left"
-				Width="201"
+        <Button x:Name="button"
+                Content="Ввести значения"
+                Command="{Binding CreateInputContainers_delegate}"
+                Grid.Column="1"
+                Grid.Row="5"
                 Cursor="Hand" />
-
-	</Grid>
+    </Grid>
 </Window>
