@@ -65,12 +65,15 @@
             <Label Content="{Binding DeltaFlow}"
                    Grid.Row="12" />
         </Grid>
+
         <graphx:ZoomControl x:Name="zoomLeft"
-                            Grid.Column="3"
-                            Grid.Row="1">
+                                Grid.Column="3"
+                                Grid.Row="1"
+                                >
             <local:GArea x:Name="FlowGraphArea">
             </local:GArea>
         </graphx:ZoomControl>
+
         <graphx:ZoomControl x:Name="zoomRight"
                             Grid.Column="5"
                             Grid.Row="1">

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -54,23 +55,24 @@ namespace DMCP_Part_1
             GraphAreaLogicSetup();
 
             GraphsRendering();
+            FlowGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
+            IncrementalGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
 
             zoomLeft.ZoomToFill(); 
             zoomRight.ZoomToFill();
         }
         void GraphsRendering()
         {
+            FlowGraphArea.ClearLayout(true);
             FlowGraphArea.GenerateGraph(FlowGraph());
             IncrementalGraphArea.GenerateGraph(IncrementalGraph());
             FlowGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
-            FlowGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
 
 			FlowGraphArea.AlignAllEdgesLabels(true);
 			FlowGraphArea.ShowAllEdgesLabels(true);
 
 			IncrementalGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
             IncrementalGraphArea.ShowAllEdgesArrows(true);
-            IncrementalGraphArea.EdgeClicked += new EdgeClickedEventHandler(EdgeClicked);
 
 			IncrementalGraphArea.ShowAllEdgesLabels(true);
 
@@ -80,7 +82,8 @@ namespace DMCP_Part_1
 
         void EdgeClicked(object obj,EdgeClickedEventArgs args)
         {
-            args.Control.ShowLabel = !(args.Control.ShowLabel == true);
+           args.Control.ShowLabel = !(args.Control.ShowLabel == true);
+
         }
        
         private TransportGraph FlowGraph()
