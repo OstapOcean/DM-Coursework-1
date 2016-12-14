@@ -33,23 +33,15 @@
             <ResourceDictionary Source="/DynamicGraphXTemplates.xaml" />
         </ResourceDictionary.MergedDictionaries>-->
 
-        <LinearGradientBrush x:Key="EdgeBrush"
-                             EndPoint="0.5,0"
-                             StartPoint="0.5,1"
-                             po:Freeze="true">
-            <GradientStop Color="#FF000000" />
-            <GradientStop Color="#FFBF931E"
-                          Offset="1" />
-        </LinearGradientBrush>
-
+  
         <Style TargetType="{x:Type controls:EdgeLabelControl}">
             <Setter Property="Foreground"
-                    Value="Black" />
+                    Value="Black"  />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type controls:EdgeLabelControl}">
                         <Grid Margin="20">
-                            <Border Background="LightGray"
+                            <Border Background="LightPink"
                                     CornerRadius="4">
                                 <ContentPresenter Margin="2"
                                                   TextBlock.FontSize="5"

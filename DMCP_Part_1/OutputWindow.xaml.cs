@@ -67,13 +67,9 @@ namespace DMCP_Part_1
             FlowGraphArea.GenerateGraph(FlowGraph());
             IncrementalGraphArea.GenerateGraph(IncrementalGraph());
             FlowGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
-
-			FlowGraphArea.AlignAllEdgesLabels(true);
-			FlowGraphArea.ShowAllEdgesLabels(true);
-
+            FlowGraphArea.ShowAllEdgesLabels(true);
 			IncrementalGraphArea.SetEdgesDashStyle(EdgeDashStyle.Dash);
             IncrementalGraphArea.ShowAllEdgesArrows(true);
-
 			IncrementalGraphArea.ShowAllEdgesLabels(true);
 
 			zoomLeft.ZoomToFill();
@@ -103,20 +99,17 @@ namespace DMCP_Part_1
 
             //This property sets layout algorithm that will be used to calculate vertices positions
             //Different algorithms uses different values and some of them uses edge Weight property.
-            logicCoreFlow.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.Sugiyama;
-            logicCoreIncremental.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.Sugiyama;
+            logicCoreFlow.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
+            logicCoreIncremental.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
 
             //Now we can set parameters for selected algorithm using AlgorithmFactory property. This property provides methods for
             //creating all available algorithms and algo parameters.
-            logicCoreFlow.DefaultLayoutAlgorithmParams = logicCoreFlow.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.Sugiyama);
-            logicCoreIncremental.DefaultLayoutAlgorithmParams = logicCoreFlow.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.Sugiyama);
-
+            logicCoreFlow.DefaultLayoutAlgorithmParams = logicCoreFlow.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.KK);
+            logicCoreIncremental.DefaultLayoutAlgorithmParams = logicCoreFlow.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.KK);
             //Unfortunately to change algo parameters you need to specify params type which is different for every algorithm.
-            ((SugiyamaLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = true;
-            ((SugiyamaLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).PositionCalculationMethod = PositionCalculationMethodTypes.IndexBased;
+            ((KKLayoutParameters)logicCoreFlow.DefaultLayoutAlgorithmParams).AdjustForGravity = true;
 
-            ((SugiyamaLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).MinimizeHierarchicalEdgeLong = true;
-            ((SugiyamaLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).PositionCalculationMethod = PositionCalculationMethodTypes.IndexBased;
+            ((KKLayoutParameters)logicCoreIncremental.DefaultLayoutAlgorithmParams).AdjustForGravity = true;
             //This property sets vertex overlap removal algorithm.
             //Such algorithms help to arrange vertices in the layout so no one overlaps each other.
             logicCoreFlow.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
