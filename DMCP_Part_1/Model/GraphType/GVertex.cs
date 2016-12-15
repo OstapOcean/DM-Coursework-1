@@ -11,7 +11,6 @@ namespace DMCP_Part_1
 
     public class GVertex : VertexBase
     {
-        
         public GVertex(int id)
         {
             ID = id;

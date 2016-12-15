@@ -72,8 +72,8 @@ namespace DMCP_Part_1
             IncrementalGraphArea.ShowAllEdgesArrows(true);
 			IncrementalGraphArea.ShowAllEdgesLabels(true);
 
-			zoomLeft.ZoomToFill();
-            zoomRight.ZoomToFill();
+           zoomLeft.ZoomToFill();
+           zoomRight.ZoomToFill();
         }
 
         void EdgeClicked(object obj,EdgeClickedEventArgs args)
@@ -136,6 +136,10 @@ namespace DMCP_Part_1
             IncrementalGraphArea.LogicCore = logicCoreIncremental;
         }
 
+        private List<int> GetCurrentWay()
+        {
+            return visualizer.CurrentWay;
+        }
         private void Button_Click_NextGraph(object sender, RoutedEventArgs e)
         {
             visualizer.IncGraphListIndex();
@@ -153,6 +157,14 @@ namespace DMCP_Part_1
         private void Button_Click_ResultGraph(object sender, RoutedEventArgs e)
         {
             visualizer.GoToLastIndex(); 
+            GraphAreaLogicSetup();
+            GraphsRendering();
+        }
+
+        private void Button_Click_ShowCost(object sender, RoutedEventArgs e)
+        {
+            CostPreviewBtn.Content = GEdge.includeCost ?  "Show costs" : "Hide costs";
+            visualizer.LabelSwitcher();
             GraphAreaLogicSetup();
             GraphsRendering();
         }

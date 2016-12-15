@@ -23,12 +23,20 @@ namespace DMCP_Part_1
             get { return _incrementalGraph; }
         }
 
-        public IntermediateTransportNetEventArgs(TransportGraph incrementalGraph,TransportGraph flowGraph,int currentFlow, int deltaF)
+        public readonly int cost;
+        List<int> way;
+        public readonly List<int> Way
         {
+            get { return way; }
+        }
+        public IntermediateTransportNetEventArgs(TransportGraph incrementalGraph, TransportGraph flowGraph, int currentFlow, int deltaF, int cost,List<int> way)
+        {
+            this.way = way;
             _flowGraph = flowGraph;
             _incrementalGraph = incrementalGraph;
             this.currentFlow = currentFlow;
             this.deltaF = deltaF;
+            this.cost = cost;
         }
     }
 
@@ -61,11 +69,11 @@ namespace DMCP_Part_1
                 for (int j = i; j < incrementalNet.Length; ++j) {
                     if (_costFlow[i][j] != INFINITY)
                     {
-                        edgesList.Add(new GEdge(vertexList[i], vertexList[j], incrementalNet[i][j]));
+                        edgesList.Add(new GEdge(vertexList[i], vertexList[j], incrementalNet[i][j],-1));
                     }
                     if (incrementalNet[j][i] < 0)
                     {
-                        edgesList.Add(new GEdge(vertexList[j], vertexList[i], incrementalNet[j][i]));
+                        edgesList.Add(new GEdge(vertexList[j], vertexList[i], incrementalNet[j][i],-1));
                     }
 
                 }
@@ -90,7 +98,7 @@ namespace DMCP_Part_1
                 for (int j = i; j < flowNet.Length; ++j)
                     if (_costFlow[i][j] != INFINITY)
                     {
-                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],flowNet[i][j]));
+                        edgesList.Add(new GEdge(vertexList[i], vertexList[j],flowNet[i][j],_costFlow[i][j]));
                     }
             foreach (GEdge i in edgesList)
                 intermediateGrap.AddEdge(i);
@@ -153,28 +161,55 @@ namespace DMCP_Part_1
                 int deltaF = Min(vect);
                 deltaF = Math.Min(deltaF, givenFlow - currentFlow);
                 m = graphSize - 1;
+                List<int> way=new List<int>();
                 while (m != 0)
                 {
-                    if (T[m] < m)
+                    if (T[m] < m){
                         flowsGraph[T[m]][m] = flowsGraph[T[m]][m] + deltaF;
-                    else
+                        if(!SerchInList(way,T[m])){
+                            way.Add(T[m]);
+                        }
+                    }
+                    else{
                         flowsGraph[m][T[m]] = flowsGraph[m][T[m]] - deltaF;
+                         if(!SerchInList(way,m)){
+                            way.Add(m);
+                        }
+                    }
                     m = T[m];
                 }
                 currentFlow = currentFlow + deltaF;
-
+                int cost=0;
+                for(int i=0;i<flowsGraph.Length;++i){
+                     for(int j=0;j<flowsGraph[i].Length;++j){
+                         cost+= flowsGraph[i][j]*_costFlow[i][j];
+                    }
+                }
 
                 var args = new IntermediateTransportNetEventArgs(
                     FormIncrementalGraph(incrementalGraph),
                     FormFlowGraph(flowsGraph), 
                     currentFlow, 
-                    deltaF
+                    deltaF,
+                    cost,
+                    way
                     );
                 IntermediateTransportNetResult(this, args);
             }
             return flowsGraph;
         }
-
+        private bool SerchInList(List<int> l, int search)
+        {
+            bool found = false;
+            for (int i = 0; i < l.Count; ++i)
+            {
+                if (l[i] == search)
+                {
+                    found = true;
+                }
+            }
+            return found;
+        }
 
         private int Min(int[] vect)
         {

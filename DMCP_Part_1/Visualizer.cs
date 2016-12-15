@@ -47,6 +47,8 @@ namespace DMCP_Part_1 {
 			}
 		}
 
+        private int finalCost;
+        public int FinalCost { get { return finalCost; } }
 
 		public void GoToLastIndex() {
 			listIndex = flowGraphraphList.Count - 1;
@@ -80,32 +82,10 @@ namespace DMCP_Part_1 {
 		public Visualizer(int[][] costMatrix, int[][] capacityMatrix) {
 			deltaF = new List<int>();
 			currentFlow = new List<int>();
-
+            ways = new List<List<int>>();
 			flowGraphraphList = new List<TransportGraph>();
 			incrementalGraphraphList = new List<TransportGraph>();
-			//int q = 9999;
-			//int[][] costMatrix = {
-			//			 new int[]{q,0,0,0,q,q,q,q,q},
-			//			 new int[]{q,q,q,q,10,11,18,32,q},
-			//			 new int[]{q,q,q,q,16,14,20,25,q},
-			//			 new int[]{q,q,q,q,26,28,22,30,q},
-			//			 new int[]{q,q,q,q,q,q,q,q,0},
-			//			 new int[]{q,q,q,q,q,q,q,q,0},
-			//			 new int[]{q,q,q,q,q,q,q,q,0},
-			//			 new int[]{q,q,q,q,q,q,q,q,0},
-			//			 new int[]{q,q,q,q,q,q,q,q,q}
-			//};
-			//int[][] capacityMatrix = {
-			//			 new int[]{0,41,50,89,0,0,0,0,0},
-			//			 new int[]{0,0,0,0,q,q,q,q,0},
-			//			 new int[]{0,0,0,0,q,q,q,q,0},
-			//			 new int[]{0,0,0,0,q,q,q,q,0},
-			//			 new int[]{0,0,0,0,0,0,0,0,44},
-			//			 new int[]{0,0,0,0,0,0,0,0,33},
-			//			 new int[]{0,0,0,0,0,0,0,0,71},
-			//			 new int[]{0,0,0,0,0,0,0,0,10},
-			//			 new int[]{0,0,0,0,0,0,0,0,0}
-			//};
+		
 			int maxProvidersFlow = 0;
 			for (int i = 0; i < capacityMatrix.Length; ++i) {
 				maxProvidersFlow += capacityMatrix[0][i];
@@ -116,17 +96,34 @@ namespace DMCP_Part_1 {
 			}
 			int searchFlow = maxProvidersFlow > maxConsumersFlow ? maxConsumersFlow : maxProvidersFlow;
 			network = new TransportNetwork(capacityMatrix, costMatrix);
-			network.IntermediateTransportNetResult += new IntermediateGraphDelegate(Catcher);
+			network.IntermediateTransportNetResult += new IntermediateGraphDelegate(ArgsCatcher);
 			network.FlowMinCost(searchFlow);
 		}
 
-		private void Catcher(object sender, IntermediateTransportNetEventArgs args) {
+        private List<List<int>> ways;
+        public List<int> CurrentWay
+        {
+            get { return ways[listIndex]; }
+        }
+		private void ArgsCatcher(object sender, IntermediateTransportNetEventArgs args) {
 			flowGraphraphList.Add(args.FlowGraph);
 			incrementalGraphraphList.Add(args.IncrementalGraph);
 			deltaF.Add(args.deltaF);
 			currentFlow.Add(args.currentFlow);
+            finalCost = args.cost;
+            ways.Add(args.Way);
 		}
 
+        public void LabelSwitcher()
+        {
+            GEdge.includeCost = !GEdge.includeCost;
+
+            OnPropertyChanged("DeltaFlow");
+            OnPropertyChanged("CurrentFlow");
+            OnPropertyChanged("CurrentIteration");
+
+            OnPropertyChanged("CurrentIterationOutput");
+        }
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		protected void OnPropertyChanged(string propertyChanged) {

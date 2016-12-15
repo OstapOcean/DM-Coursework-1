@@ -4,7 +4,7 @@
         xmlns:graphx="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
         xmlns:local="clr-namespace:DMCP_Part_1"
         Title="OutputWindow"
-        Height="400"
+        Height="477"
         Width="831">
 
     <Grid>
@@ -43,6 +43,12 @@
                 <RowDefinition Height="10" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
             </Grid.RowDefinitions>
             <Button Content="Result"
                     Click="Button_Click_ResultGraph"
@@ -66,6 +72,16 @@
                    Grid.Row="11" />
             <Label Content="{Binding DeltaFlow}"
                    Grid.Row="12" />
+            <Label Content="Стоимость:"
+                   Grid.Row="14" />
+            <Label Content="{Binding FinalCost}"
+                   Grid.Row="15" />
+            <Button 
+                x:Name="CostPreviewBtn"
+                Content="Show costs"
+                    Click="Button_Click_ShowCost"
+                    Grid.Row="17"
+                    Cursor="Hand" />
         </Grid>
 
         <Label Content="Инкрементальный граф"
