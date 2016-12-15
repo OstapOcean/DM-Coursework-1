@@ -44,7 +44,7 @@
                             <Border Background="LightPink"
                                     CornerRadius="4">
                                 <ContentPresenter Margin="2"
-                                                  TextBlock.FontSize="5"
+                                                  TextBlock.FontSize="12"
                                                   TextBlock.TextAlignment="Center" />
                             </Border>
                         </Grid>

@@ -19,11 +19,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="25" />
+            <RowDefinition />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
         <Grid Grid.Column="1"
-              Grid.Row="1">
+              Grid.Row="2"
+              Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
@@ -66,19 +68,35 @@
                    Grid.Row="12" />
         </Grid>
 
+        <Label Content="Инкрементальный граф"
+               Grid.Column="3"
+               Grid.Row="1"
+               Padding="0"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="16" />
+
         <graphx:ZoomControl x:Name="zoomLeft"
-                                Grid.Column="3"
-                                Grid.Row="1"
-                                >
+                            Grid.Column="3"
+                            Grid.Row="2" >
             <local:GArea x:Name="FlowGraphArea">
             </local:GArea>
         </graphx:ZoomControl>
 
         <graphx:ZoomControl x:Name="zoomRight"
                             Grid.Column="5"
-                            Grid.Row="1">
+                            Grid.Row="1"
+                            Margin="0,20,0,0"
+                            Grid.RowSpan="2">
             <local:GArea x:Name="IncrementalGraphArea">
             </local:GArea>
         </graphx:ZoomControl>
+        <Label Content="Потоковый граф"
+               Grid.Column="5"
+               Grid.Row="1"
+               Padding="0"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="16" />
     </Grid>
 </Window>
