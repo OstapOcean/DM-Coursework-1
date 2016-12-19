@@ -21,6 +21,7 @@ namespace DMCP_Part_1 {
 		}
 		private List<int> currentFlow;
 		public int CurrentFlow { get { return currentFlow[listIndex]; } }
+		public int CurrentFlowCount { get { return currentFlow.Count; } }
 
 		private int listIndex = 0;
 		public int CurrentIteration {

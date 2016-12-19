@@ -10,7 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="175" />
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="10" />
@@ -49,16 +49,18 @@
                 <RowDefinition Height="10" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+
             </Grid.RowDefinitions>
-            <Button Content="Result"
+            <Button Content="Результат"
                     Click="Button_Click_ResultGraph"
                     Grid.Row="0"
                     Cursor="Hand" />
-            <Button Content="Next Step"
+            <Button Content="Следующий шаг"
                     Click="Button_Click_NextGraph"
                     Grid.Row="2"
                     Cursor="Hand" />
-            <Button Content="Prev Step"
+            <Button Content="Предыдущий шаг"
                     Click="Button_Click_PrevGraph"
                     Grid.Row="4"
                     Cursor="Hand" />
@@ -72,19 +74,29 @@
                    Grid.Row="11" />
             <Label Content="{Binding DeltaFlow}"
                    Grid.Row="12" />
-            <Label Content="Стоимость:"
-                   Grid.Row="14" />
+            <Label Content="Итоговая стоимость:"
+                   Grid.Row="14"
+                   Name="TotalCostText_label"
+                   Visibility="Collapsed" />
             <Label Content="{Binding FinalCost}"
-                   Grid.Row="15" />
+                   Grid.Row="15"
+                   Name="TotalCost_label"
+                   Visibility="Collapsed" />
             <Button 
                 x:Name="CostPreviewBtn"
-                Content="Show costs"
+                Content="Показать стоимость"
                     Click="Button_Click_ShowCost"
                     Grid.Row="17"
                     Cursor="Hand" />
+            
+            <Label Content="Обозначения: цена/поток"
+                   Grid.Row="18"
+                   Visibility="Collapsed" 
+                   Name="CostLegend_label"
+                   HorizontalContentAlignment="Center" />
         </Grid>
 
-        <Label Content="Инкрементальный граф"
+        <Label Content="Потоковый граф"
                Grid.Column="3"
                Grid.Row="1"
                Padding="0"
@@ -107,7 +119,7 @@
             <local:GArea x:Name="IncrementalGraphArea">
             </local:GArea>
         </graphx:ZoomControl>
-        <Label Content="Потоковый граф"
+        <Label Content="Инкрементальный граф"
                Grid.Column="5"
                Grid.Row="1"
                Padding="0"

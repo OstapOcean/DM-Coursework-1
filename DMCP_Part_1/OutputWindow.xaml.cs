@@ -145,29 +145,48 @@ namespace DMCP_Part_1
             visualizer.IncGraphListIndex();
             GraphAreaLogicSetup();
             GraphsRendering();
-        }
+
+			ChangeTotalCostLabelVisibility();
+		}
 
         private void Button_Click_PrevGraph(object sender, RoutedEventArgs e)
         {
             visualizer.DecGgraphListIndex();
             GraphAreaLogicSetup();
             GraphsRendering();
-        }
+
+			ChangeTotalCostLabelVisibility();
+		}
 
         private void Button_Click_ResultGraph(object sender, RoutedEventArgs e)
         {
             visualizer.GoToLastIndex(); 
             GraphAreaLogicSetup();
             GraphsRendering();
-        }
+
+			ChangeTotalCostLabelVisibility();
+
+		}
 
         private void Button_Click_ShowCost(object sender, RoutedEventArgs e)
         {
-            CostPreviewBtn.Content = GEdge.includeCost ?  "Show costs" : "Hide costs";
+			CostLegend_label.Visibility = CostLegend_label.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+			CostPreviewBtn.Content = GEdge.includeCost ? "Показать стоимость" : "Скрыть стоимость";
             visualizer.LabelSwitcher();
             GraphAreaLogicSetup();
             GraphsRendering();
         }
 
+
+		private void ChangeTotalCostLabelVisibility () {
+			if (visualizer.CurrentIteration == visualizer.CurrentFlowCount - 1) {
+				TotalCost_label.Visibility = Visibility.Visible;
+				TotalCostText_label.Visibility = Visibility.Visible;
+			}
+			else {
+				TotalCost_label.Visibility = Visibility.Collapsed;
+				TotalCostText_label.Visibility = Visibility.Collapsed;
+			}
+		}
     }
 }
