@@ -14,7 +14,12 @@ namespace DMCP_Part_1 {
 
 	class Visualizer : INotifyPropertyChanged {
 		private TransportNetwork network;
-
+ 
+        private List<List<int>> ways;
+        public List<int> CurrentWay
+        {
+            get { return ways[listIndex]; }
+        }
 		private List<int> deltaF;
 		public int DeltaFlow {
 			get { return deltaF[listIndex]; }
@@ -101,11 +106,7 @@ namespace DMCP_Part_1 {
 			network.FlowMinCost(searchFlow);
 		}
 
-        private List<List<int>> ways;
-        public List<int> CurrentWay
-        {
-            get { return ways[listIndex]; }
-        }
+       
 		private void ArgsCatcher(object sender, IntermediateTransportNetEventArgs args) {
 			flowGraphraphList.Add(args.FlowGraph);
 			incrementalGraphraphList.Add(args.IncrementalGraph);

@@ -25,7 +25,7 @@ namespace DMCP_Part_1
 
         public readonly int cost;
         List<int> way;
-        public readonly List<int> Way
+        public List<int> Way
         {
             get { return way; }
         }

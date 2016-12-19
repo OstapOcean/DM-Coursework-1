@@ -72,6 +72,7 @@ namespace DMCP_Part_1
             IncrementalGraphArea.ShowAllEdgesArrows(true);
 			IncrementalGraphArea.ShowAllEdgesLabels(true);
 
+
            zoomLeft.ZoomToFill();
            zoomRight.ZoomToFill();
         }
@@ -97,6 +98,7 @@ namespace DMCP_Part_1
             var logicCoreIncremental = new GXLogicCore() { Graph = IncrementalGraph() };            
             logicCoreIncremental.EnableParallelEdges = true;
 
+            
             //This property sets layout algorithm that will be used to calculate vertices positions
             //Different algorithms uses different values and some of them uses edge Weight property.
             logicCoreFlow.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
@@ -136,10 +138,6 @@ namespace DMCP_Part_1
             IncrementalGraphArea.LogicCore = logicCoreIncremental;
         }
 
-        private List<int> GetCurrentWay()
-        {
-            return visualizer.CurrentWay;
-        }
         private void Button_Click_NextGraph(object sender, RoutedEventArgs e)
         {
             visualizer.IncGraphListIndex();
