@@ -4,7 +4,7 @@
         xmlns:graphx="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
         xmlns:local="clr-namespace:DMCP_Part_1"
         Title="OutputWindow"
-        Height="477"
+        Height="540"
         Width="831">
 
     <Grid>
@@ -50,6 +50,9 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="25" />
 
             </Grid.RowDefinitions>
             <Button Content="Результат"
@@ -66,31 +69,35 @@
                     Cursor="Hand" />
             <Label Content="{Binding CurrentIterationOutput}"
                    Grid.Row="6" />
-            <Label Content="Текущий поток:"
+            <Label Content="Текущий путь"
                    Grid.Row="8" />
-            <Label Content="{Binding CurrentFlow}"
+            <Label Content="{Binding CurrentWayString}"
                    Grid.Row="9" />
-            <Label Content="Прирост потока:"
+            <Label Content="Текущий поток:"
                    Grid.Row="11" />
-            <Label Content="{Binding DeltaFlow}"
+            <Label Content="{Binding CurrentFlow}"
                    Grid.Row="12" />
+            <Label Content="Прирост потока:"
+                   Grid.Row="14" />
+            <Label Content="{Binding DeltaFlow}"
+                   Grid.Row="15" />
             <Label Content="Итоговая стоимость:"
-                   Grid.Row="14"
+                   Grid.Row="17"
                    Name="TotalCostText_label"
-                   Visibility="Collapsed" />
+                   Visibility="Visible" />
             <Label Content="{Binding FinalCost}"
-                   Grid.Row="15"
+                   Grid.Row="18"
                    Name="TotalCost_label"
                    Visibility="Collapsed" />
             <Button 
                 x:Name="CostPreviewBtn"
                 Content="Показать стоимость"
                     Click="Button_Click_ShowCost"
-                    Grid.Row="17"
+                    Grid.Row="20"
                     Cursor="Hand" />
             
             <Label Content="Обозначения: цена/поток"
-                   Grid.Row="18"
+                   Grid.Row="22"
                    Visibility="Collapsed" 
                    Name="CostLegend_label"
                    HorizontalContentAlignment="Center" />

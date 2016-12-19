@@ -145,6 +145,7 @@ namespace DMCP_Part_1
             GraphsRendering();
 
 			ChangeTotalCostLabelVisibility();
+			visualizer.CurrentWayStringUpdate();
 		}
 
         private void Button_Click_PrevGraph(object sender, RoutedEventArgs e)
@@ -154,6 +155,7 @@ namespace DMCP_Part_1
             GraphsRendering();
 
 			ChangeTotalCostLabelVisibility();
+			visualizer.CurrentWayStringUpdate();
 		}
 
         private void Button_Click_ResultGraph(object sender, RoutedEventArgs e)
@@ -163,7 +165,7 @@ namespace DMCP_Part_1
             GraphsRendering();
 
 			ChangeTotalCostLabelVisibility();
-
+			visualizer.CurrentWayStringUpdate();
 		}
 
         private void Button_Click_ShowCost(object sender, RoutedEventArgs e)

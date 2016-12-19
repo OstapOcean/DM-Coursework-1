@@ -23,7 +23,7 @@ namespace DMCP_Part_1
             get { return _incrementalGraph; }
         }
 
-        public readonly int cost;
+        public int cost;
         List<int> way;
         public List<int> Way
         {

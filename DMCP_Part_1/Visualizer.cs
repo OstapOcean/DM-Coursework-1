@@ -14,12 +14,28 @@ namespace DMCP_Part_1 {
 
 	class Visualizer : INotifyPropertyChanged {
 		private TransportNetwork network;
- 
+
+		private int vertexCount;
+
         private List<List<int>> ways;
         public List<int> CurrentWay
         {
             get { return ways[listIndex]; }
         }
+		public string CurrentWayString {
+			get {
+				string value = "";
+				for (int i = CurrentWay.Count - 1; i >= 0; i--) {
+					value += CurrentWay[i].ToString() + "->";
+				}
+				value += vertexCount.ToString();
+				return value;
+			}
+		}
+		public void CurrentWayStringUpdate () {
+			OnPropertyChanged("CurrentWayString");
+		}
+
 		private List<int> deltaF;
 		public int DeltaFlow {
 			get { return deltaF[listIndex]; }
@@ -91,7 +107,9 @@ namespace DMCP_Part_1 {
             ways = new List<List<int>>();
 			flowGraphraphList = new List<TransportGraph>();
 			incrementalGraphraphList = new List<TransportGraph>();
-		
+
+			vertexCount = costMatrix.Length - 1;
+
 			int maxProvidersFlow = 0;
 			for (int i = 0; i < capacityMatrix.Length; ++i) {
 				maxProvidersFlow += capacityMatrix[0][i];
